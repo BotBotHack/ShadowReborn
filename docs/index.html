@@ -6,8 +6,15 @@
   <meta name="description" content="ShadowReborn — заготовка современного сайта.">
   <meta name="theme-color" content="#0b0d12">
   <title>ShadowReborn</title>
+
   <link rel="stylesheet" href="./styles.css">
+
   <script src="./script.js" defer></script>
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
 </head>
 <body>
   <header class="site-header">
@@ -26,20 +33,38 @@
       <div class="hero-content">
         <p class="eyebrow">Сайт запущен</p>
         <h1 id="hero-title">ShadowReborn</h1>
+
         <p class="hero-text">
           Чистая заготовка без фреймворков, сборки и внешних зависимостей.
         </p>
-        <form class="hero-form" action="#" method="get">
+
+        <form class="hero-form" id="text-form" novalidate>
           <label class="sr-only" for="request">Введите текст</label>
+
           <input
             id="request"
             name="request"
             type="text"
+            maxlength="5000"
             placeholder="Введите текст"
             autocomplete="off"
             required
           >
-          <button class="button" type="submit">Отправить</button>
+
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAD0AGJFdLECPBfUG"
+            data-action="submit_text"
+            data-callback="onTurnstileSuccess"
+            data-expired-callback="onTurnstileExpired"
+            data-error-callback="onTurnstileError"
+          ></div>
+
+          <button class="button" id="send-button" type="submit" disabled>
+            Отправить
+          </button>
+
+          <p id="send-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -73,6 +98,7 @@
         <p class="eyebrow">Следующий шаг</p>
         <h2>Здесь появится настоящий сайт</h2>
       </div>
+
       <p>
         Эту секцию можно заменить страницами проекта, профилями, каталогом,
         авторизацией или интерфейсом для API.
