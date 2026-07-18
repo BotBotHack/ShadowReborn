@@ -64,10 +64,6 @@
             Отправить
           </button>
 
-          <button class="button" id="intent-button" type="button" style="margin-top:12px;background:#2563eb;">
-            Открыть настройки сети
-          </button>
-
           <p id="send-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -95,6 +91,28 @@
           <p>Обычный браузерный JavaScript без Node.js и npm.</p>
         </article>
       </div>
+    </section>
+
+    <section class="section" id="dns">
+      <div class="section-heading">
+        <p class="eyebrow">Приватный DNS</p>
+        <h2>DNS over TLS: dns.botbothack.com</h2>
+      </div>
+
+      <p>
+        Это личный DNS over TLS сервер для тестирования. Установка профиля
+        меняет системный DNS-резолвер на устройстве — весь DNS-трафик пойдёт
+        через <code>dns.botbothack.com</code>. Устанавливайте только если
+        доверяете этому серверу.
+      </p>
+
+      <a
+        class="button"
+        href="/dot-profile.mobileconfig"
+        style="display:inline-block;margin-top:16px;text-decoration:none;text-align:center;"
+      >
+        Установить DNS профиль (iOS)
+      </a>
     </section>
 
     <section class="section contact" id="contact">
