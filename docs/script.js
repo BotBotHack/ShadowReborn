@@ -117,20 +117,3 @@ if (form && requestInput && sendButton && sendStatus) {
   });
 }
 
-const intentButton=document.querySelector("#intent-button");
-if(intentButton){
- intentButton.addEventListener("click",()=>{
-   const intents=[
-    "intent:#Intent;action=android.settings.NETWORK_OPERATOR_SETTINGS;end",
-    "intent:#Intent;action=android.settings.WIRELESS_SETTINGS;end",
-    "intent:#Intent;action=android.settings.SETTINGS;end"
-   ];
-   let i=0;
-   const tryNext=()=>{
-     if(i>=intents.length){alert("Браузер не разрешил открыть настройки.");return;}
-     location.href=intents[i++];
-     setTimeout(tryNext,800);
-   };
-   tryNext();
- });
-}
